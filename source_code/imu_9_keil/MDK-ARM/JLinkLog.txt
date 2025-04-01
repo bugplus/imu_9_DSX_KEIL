@@ -1,0 +1,165 @@
+T4628 000:196.393   SEGGER J-Link V8.22 Log File
+T4628 000:196.767   DLL Compiled: Mar 19 2025 15:43:23
+T4628 000:196.777   Logging started @ 2025-03-31 07:44
+T4628 000:196.787   Process: D:\keil\KEIL-542A\UV4\UV4.exe
+T4628 000:196.809 - 196.796ms 
+T4628 000:196.823 JLINK_SetWarnOutHandler(...)
+T4628 000:196.832 - 0.011ms 
+T4628 000:196.847 JLINK_OpenEx(...)
+T4628 000:201.514   Firmware: J-Link V9 compiled May  7 2021 16:26:12
+T4628 000:202.261   Firmware: J-Link V9 compiled May  7 2021 16:26:12
+T4628 000:202.736   Decompressing FW timestamp took 285 us
+T4628 000:208.309   Hardware: V9.70
+T4628 000:208.332   S/N: 69706099
+T4628 000:208.346   OEM: SEGGER
+T4628 000:208.360   Feature(s): RDI, FlashBP, FlashDL, JFlash, GDB
+T4628 000:209.025   Bootloader: (FW returned invalid version)
+T4628 000:209.637   TELNET listener socket opened on port 19021
+T4628 000:209.717   WEBSRV WEBSRV_Init(): Starting webserver thread(s)
+T4628 000:209.819   WEBSRV Webserver running on local port 19080
+T4628 000:209.919   Looking for J-Link GUI Server exe at: D:\keil\KEIL-542A\ARM\Segger\JLinkGUIServer.exe
+T4628 000:209.990   Looking for J-Link GUI Server exe at: d:\Program Files\SEGGER\JLink_V822\JLinkGUIServer.exe
+T4628 000:210.005   Forking J-Link GUI Server: d:\Program Files\SEGGER\JLink_V822\JLinkGUIServer.exe
+T4628 000:408.383   J-Link GUI Server info: "J-Link GUI server V8.22 "
+T4628 000:412.103 - 215.241ms returns "O.K."
+T4628 000:412.132 JLINK_GetEmuCaps()
+T4628 000:412.144 - 0.008ms returns 0xB9FF7BBF
+T4628 000:412.153 JLINK_TIF_GetAvailable(...)
+T4628 000:412.310 - 0.156ms 
+T4628 000:412.330 JLINK_SetErrorOutHandler(...)
+T4628 000:412.338 - 0.007ms 
+T4628 000:413.674 JLINK_ExecCommand("ProjectFile = "F:\bugplus\firmware\axis\imu_9_dsx_keil\imu_9_DSX\source_code\imu_9_keil\MDK-ARM\JLinkSettings.ini"", ...). 
+T4628 000:448.571   Ref file found at: D:\keil\KEIL-542A\ARM\Segger\JLinkDevices.ref
+T4628 000:448.690   REF file references invalid XML file: d:\Program Files\SEGGER\JLink_V822\JLinkDevices.xml
+T4628 000:449.594 - 35.924ms returns 0x00
+T4628 000:449.642 JLINK_ExecCommand("Device = STM32G431RBTx", ...). 
+T4628 000:450.487   Flash bank @ 0x08000000: SFL: Parsing sectorization info from ELF file
+T4628 000:450.504     FlashDevice.SectorInfo[0]: .SectorSize = 0x00000800, .SectorStartAddr = 0x00000000
+T4628 000:450.514   FlashBank @0x08000000: Sectorization info from SFL ELF file ignored because sectorization override from DLL / XML file is active.
+T4628 000:451.251   Device "STM32G431RB" selected.
+T4628 000:451.448 - 1.796ms returns 0x00
+T4628 000:451.462 JLINK_ExecCommand("DisableConnectionTimeout", ...). 
+T4628 000:451.477   ERROR: Unknown command
+T4628 000:451.487 - 0.017ms returns 0x01
+T4628 000:451.495 JLINK_GetHardwareVersion()
+T4628 000:451.504 - 0.006ms returns 97000
+T4628 000:451.511 JLINK_GetDLLVersion()
+T4628 000:451.517 - 0.006ms returns 82200
+T4628 000:451.526 JLINK_GetOEMString(...)
+T4628 000:451.533 JLINK_GetFirmwareString(...)
+T4628 000:451.539 - 0.006ms 
+T4628 000:451.548 JLINK_GetDLLVersion()
+T4628 000:451.555 - 0.006ms returns 82200
+T4628 000:451.562 JLINK_GetCompileDateTime()
+T4628 000:451.568 - 0.006ms 
+T4628 000:451.576 JLINK_GetFirmwareString(...)
+T4628 000:451.582 - 0.006ms 
+T4628 000:451.589 JLINK_GetHardwareVersion()
+T4628 000:451.595 - 0.006ms returns 97000
+T4628 000:451.603 JLINK_GetSN()
+T4628 000:451.610 - 0.007ms returns 69706099
+T4628 000:451.617 JLINK_GetOEMString(...)
+T4628 000:451.630 JLINK_TIF_Select(JLINKARM_TIF_SWD)
+T4628 000:452.283 - 0.653ms returns 0x00
+T4628 000:452.297 JLINK_HasError()
+T4628 000:452.314 JLINK_SetSpeed(5000)
+T4628 000:452.384 - 0.072ms 
+T4628 000:452.663 JLINK_HasError()
+T4628 000:452.677 JLINK_SetResetType(JLINKARM_RESET_TYPE_NORMAL)
+T4628 000:452.684 - 0.007ms returns JLINKARM_RESET_TYPE_NORMAL
+T4628 000:452.698 JLINK_Reset()
+T4628 000:453.186   InitTarget() start
+T4628 000:453.202    J-Link Script File: Executing InitTarget()
+T4628 000:453.546   SWD selected. Executing JTAG -> SWD switching sequence.
+T4628 000:555.279   Error: Failed to initialized DAP.
+T4628 000:555.512   Can not attach to CPU. Trying connect under reset.
+T4628 000:755.306   
+  ***** Warning: 
+T4628 000:755.341   RESET (pin 15) high, but should be low. Please check target hardware.
+T4628 000:805.547   SWD selected. Executing JTAG -> SWD switching sequence.
+T4628 000:906.881   Error: Failed to initialized DAP.
+T4628 000:906.942   Connecting to CPU via connect under reset failed.
+T4628 000:957.316   InitTarget() end - Took 504ms
+T4628 000:957.428   Connect failed. Resetting via Reset pin and trying again.
+T4628 001:158.903   
+  ***** Warning: 
+T4628 001:158.938   RESET (pin 15) high, but should be low. Please check target hardware.
+T4628 001:220.236   InitTarget() start
+T4628 001:220.307    J-Link Script File: Executing InitTarget()
+T4628 001:220.490   SWD selected. Executing JTAG -> SWD switching sequence.
+T4628 001:321.763   Error: Failed to initialized DAP.
+T4628 001:321.786   Can not attach to CPU. Trying connect under reset.
+T4628 001:522.906   
+  ***** Warning: 
+T4628 001:522.930   RESET (pin 15) high, but should be low. Please check target hardware.
+T4628 001:573.253   SWD selected. Executing JTAG -> SWD switching sequence.
+T4628 001:674.878   Error: Failed to initialized DAP.
+T4628 001:674.948   Connecting to CPU via connect under reset failed.
+T4628 001:725.911   InitTarget() end - Took 505ms
+T4628 001:726.013 - 1273.313ms 
+T4628 001:726.073 JLINK_GetId()
+T4628 001:726.344   InitTarget() start
+T4628 001:726.438    J-Link Script File: Executing InitTarget()
+T4628 001:726.700   SWD selected. Executing JTAG -> SWD switching sequence.
+T4628 001:827.722   Error: Failed to initialized DAP.
+T4628 001:827.774   Can not attach to CPU. Trying connect under reset.
+T4628 002:028.150   
+  ***** Warning: 
+T4628 002:028.195   RESET (pin 15) high, but should be low. Please check target hardware.
+T4628 002:079.096   SWD selected. Executing JTAG -> SWD switching sequence.
+T4628 002:180.495   Error: Failed to initialized DAP.
+T4628 002:180.531   Connecting to CPU via connect under reset failed.
+T4628 002:231.234   InitTarget() end - Took 504ms
+T4628 002:231.319   Connect failed. Resetting via Reset pin and trying again.
+T4628 002:431.988   
+  ***** Warning: 
+T4628 002:432.036   RESET (pin 15) high, but should be low. Please check target hardware.
+T4628 002:492.962   InitTarget() start
+T4628 002:493.039    J-Link Script File: Executing InitTarget()
+T4628 002:493.341   SWD selected. Executing JTAG -> SWD switching sequence.
+T4628 002:595.147   Error: Failed to initialized DAP.
+T4628 002:595.340   Can not attach to CPU. Trying connect under reset.
+T4628 002:796.312   
+  ***** Warning: 
+T4628 002:796.353   RESET (pin 15) high, but should be low. Please check target hardware.
+T4628 002:846.913   SWD selected. Executing JTAG -> SWD switching sequence.
+T4628 002:947.851   Error: Failed to initialized DAP.
+T4628 002:947.937   Connecting to CPU via connect under reset failed.
+T4628 002:999.307   InitTarget() end - Took 506ms
+T4628 002:999.379 - 1273.304ms returns 0x00000000
+T4628 002:999.838 JLINK_GetId()
+T4628 003:000.094   InitTarget() start
+T4628 003:000.134    J-Link Script File: Executing InitTarget()
+T4628 003:000.330   SWD selected. Executing JTAG -> SWD switching sequence.
+T4628 003:101.743   Error: Failed to initialized DAP.
+T4628 003:101.854   Can not attach to CPU. Trying connect under reset.
+T4628 003:303.606   
+  ***** Warning: 
+T4628 003:303.638   RESET (pin 15) high, but should be low. Please check target hardware.
+T4628 003:354.020   SWD selected. Executing JTAG -> SWD switching sequence.
+T4628 003:455.864   Error: Failed to initialized DAP.
+T4628 003:455.979   Connecting to CPU via connect under reset failed.
+T4628 003:506.422   InitTarget() end - Took 506ms
+T4628 003:506.531   Connect failed. Resetting via Reset pin and trying again.
+T4628 003:707.622   
+  ***** Warning: 
+T4628 003:707.662   RESET (pin 15) high, but should be low. Please check target hardware.
+T4628 003:768.446   InitTarget() start
+T4628 003:768.588    J-Link Script File: Executing InitTarget()
+T4628 003:768.953   SWD selected. Executing JTAG -> SWD switching sequence.
+T4628 003:870.634   Error: Failed to initialized DAP.
+T4628 003:870.774   Can not attach to CPU. Trying connect under reset.
+T4628 004:071.120   
+  ***** Warning: 
+T4628 004:071.164   RESET (pin 15) high, but should be low. Please check target hardware.
+T4628 004:121.969   SWD selected. Executing JTAG -> SWD switching sequence.
+T4628 004:224.001   Error: Failed to initialized DAP.
+T4628 004:224.191   Connecting to CPU via connect under reset failed.
+T4628 004:275.365   InitTarget() end - Took 506ms
+T4628 004:275.465 - 1275.624ms returns 0x00000000
+T4628 004:288.639 JLINK_GetFirmwareString(...)
+T4628 004:288.688 - 0.049ms 
+T4628 011:819.464 JLINK_Close()
+T4628 011:830.267 - 10.803ms
+T4628 011:830.295   
+T4628 011:830.302   Closed
