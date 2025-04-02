@@ -1,0 +1,5 @@
+--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\user\acc_gry_mag -I ..\user\attitude_calculation -I ..\user\bsp -I ..\user\communicate -I ..\user\data_filter -I ..\user\vofa_debug -I ..\user\imu_algorithm
+-I.\RTE\_IMU_9_DSX
+-IC:\Users\Administrator\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include
+-D__UVISION_VERSION="542" -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx
+-o imu_9_dsx\magnetic.o --omf_browse imu_9_dsx\magnetic.crf --depend imu_9_dsx\magnetic.d "..\user\acc_gry_mag\magnetic.c"
