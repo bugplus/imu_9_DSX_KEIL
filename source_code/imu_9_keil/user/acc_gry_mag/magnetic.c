@@ -124,11 +124,13 @@ int16_t mag_z_max=0,mag_z_min=0;
 
 /*校准过程
  * 一段时间内连续采集地磁xyz三个轴向上的最大值和最小值，做运算
- *
- */
-void mag_set_offset(void)
+ * 
+ * output 0 success -1 fail
+ */ 
+int32_t mag_set_offset(void)
 {
 
+	int32_t ret_err = -1;
 	uint32_t cnt = 0;
 	uint8_t r_data[6];
 	int16_t mag_off[3];
@@ -169,36 +171,41 @@ void mag_set_offset(void)
 
     Xsf = (mag_y_max - mag_y_min) / (mag_x_max - mag_x_min);
     Ysf = (mag_x_max - mag_x_min) / (mag_y_max - mag_y_min);
+	// todo 缩放因子是不是需要阈值判断，小于xx为无效值，重新校准；
+	// 判断缩放因子是否在有效范围内
+	if (Xsf >= 0.8 && Xsf <= 1.2 && Ysf >= 0.8 && Ysf <= 1.2)
+	{
+		if (Xsf < 1)
+		{
+			Xsf = 1;
+		}
 
-    if (Xsf < 1)
-    {
-    	Xsf = 1;
-    }
+		if (Ysf < 1)
+		{
+			Ysf = 1;
+		}
 
-    if (Ysf < 1)
-    {
-    	Ysf = 1;
-    }
+		Xoffset = ((mag_x_max - mag_x_min) / 2 - mag_x_max) * Xsf;
+		Yoffset = ((mag_y_max - mag_y_min) / 2 - mag_y_max) * Ysf;
+		//    Zoffset = ( (mag_z_max-mag_z_min)/2 - mag_z_max) *Xsf;
 
-    Xoffset = ( (mag_x_max - mag_x_min)/2 - mag_x_max) *Xsf;
-    Yoffset = ( (mag_y_max - mag_y_min)/2 - mag_y_max) *Ysf;
-//    Zoffset = ( (mag_z_max-mag_z_min)/2 - mag_z_max) *Xsf;
+		imu_9.mag_xsf = Xsf;
+		imu_9.mag_ysf = Ysf;
 
-    imu_9.mag_xsf = Xsf;
-    imu_9.mag_ysf = Ysf;
+		imu_9.mag_zero[0] = Xoffset;
+		imu_9.mag_zero[1] = Yoffset;
+		//    imu_9.mag_zero[2] = Zoffset;
+		imu_9.mag_zero[2] = 0.0f;
 
-    imu_9.mag_zero[0] = Xoffset;
-    imu_9.mag_zero[1] = Yoffset;
-//    imu_9.mag_zero[2] = Zoffset;
-    imu_9.mag_zero[2] = 0.0f;
+		xsf_buf = (uint16_t)(Xsf * 1000);
+		ysf_buf = (uint16_t)(Ysf * 1000);
 
-    xsf_buf =(uint16_t) (Xsf*1000);
-    ysf_buf =(uint16_t) (Ysf*1000);
-
-	    //存入
-	STMFLASH_Write(MAG_ZERO_ADDR,(uint8_t*)&imu_9.mag_zero,6);
-	STMFLASH_Write(MAG_OFFSET_XSF_ADDR,(uint8_t*)&xsf_buf,2);
-	STMFLASH_Write(MAG_OFFSET_YSF_ADDR,(uint8_t*)&ysf_buf,2);
-
+		// 存入
+		STMFLASH_Write(MAG_ZERO_ADDR, (uint8_t *)&imu_9.mag_zero, 6);
+		STMFLASH_Write(MAG_OFFSET_XSF_ADDR, (uint8_t *)&xsf_buf, 2);
+		STMFLASH_Write(MAG_OFFSET_YSF_ADDR, (uint8_t *)&ysf_buf, 2);
+		ret_err = 0;
+	}
+	return ret_err;
 }
 

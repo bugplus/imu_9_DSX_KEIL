@@ -73,5 +73,5 @@
 uint8_t mag_init(void);
 void mag_sample_data(int16_t *mag );
 void mag_sample_offset_data(int16_t *mag_offset );
-void mag_set_offset(void);
+int32_t mag_set_offset(void);
 #endif /* MAGNETIC_H_ */
