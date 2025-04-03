@@ -171,7 +171,7 @@ int32_t mag_set_offset(void)
 
     Xsf = (mag_y_max - mag_y_min) / (mag_x_max - mag_x_min);
     Ysf = (mag_x_max - mag_x_min) / (mag_y_max - mag_y_min);
-	// todo 缩放因子是不是需要阈值判断，小于xx为无效值，重新校准；
+	// todo 缩放因子是不是需要阈值判断，小于x0.8大于1.2为无效值，不存入flash；
 	// 判断缩放因子是否在有效范围内
 	if (Xsf >= 0.8 && Xsf <= 1.2 && Ysf >= 0.8 && Ysf <= 1.2)
 	{

@@ -46,6 +46,7 @@ void read_flash_information(void)
 	STMFLASH_Read(MAG_OFFSET_XSF_ADDR,(uint8_t*)&xsf_read_buf,2);  //
 	STMFLASH_Read(MAG_OFFSET_YSF_ADDR,(uint8_t*)&ysf_read_buf,2);  //
 
+	// todo flash数据为空，赋默认值，代码需要继续简化；
     if(imu_9.acc_zero[0]==-1) //默认0点是0
     {
     	imu_9.acc_zero[0] = 0;
