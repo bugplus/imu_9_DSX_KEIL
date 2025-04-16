@@ -193,6 +193,7 @@ void calculate_attitude(ATT_Module *attitude, float cycle)
 	
 /////////////////////////////////////////////////////////////////////////////////////////////////
 	//开始修正陀螺仪值
+	// 1度= 0.01745329f 弧度
 	attitude->data.gyro_correct.x = ((attitude->interface.data.g_x) - attitude->data.rotate_matrix[0][2] * attitude->process.mag_yaw_bias) * 0.01745329f +
 						(attitude->parameter.error_kp * attitude->process.error.x + attitude->process.error_integral.x) ;
 	attitude->data.gyro_correct.y = ((attitude->interface.data.g_y) - attitude->data.rotate_matrix[1][2] * attitude->process.mag_yaw_bias) * 0.01745329f +
