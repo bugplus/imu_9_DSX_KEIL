@@ -10,8 +10,8 @@
 
 #include "main.h"
 
-#define LSM6DS3_GYRO_LSB 0.0175 //����500dpsʱ��Ӧ����,��λdps
-#define LSM6DS3_ACC_LSB 0.061	//����Ϊ2gʱ��Ӧ����,��λmg
+#define LSM6DS3_GYRO_LSB 0.0175 // 对应500dps时的灵敏度，单位dps
+#define LSM6DS3_ACC_LSB 0.061	// 量程为2g时的灵敏度，单位mg
 
 #define LSM6DS3_ADDR 0XD4
 #define LSM6DS3TRC_ID 0X6A
