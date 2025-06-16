@@ -53,7 +53,7 @@ dkms.conf
 
 # MDK-ARM
 # Ignore all files and subdirectories in MDK-ARM/
-MDK-ARM/*
+MDK-ARM/**
 MDK-ARM/output/
 MDK-ARM/RTE/
 MDK-ARM/list/

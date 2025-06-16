@@ -12,7 +12,7 @@
 #include "attitude_algorithm.h"
 #include "in_flash.h"
 #include "attitude.h"
-#include "math.h"
+// #include "math.h"
 
 
 extern TIM_HandleTypeDef htim2;
@@ -130,13 +130,13 @@ void imu_init(void)
 
 void imu_sample_data(void)
 {
-	acc_gyro_sample_data(imu_9.i_gyro,imu_9.i_acc);
+	acc_gyro_sample_data(imu_9.i_gyro, imu_9.i_acc);
 	mag_sample_data(imu_9.i_mag);
 
-//    usb_printf("gyro_x=%d , gyro_y=%d,gyro_z=%d\r\n",imu_9.i_gyro[0],imu_9.i_gyro[1],imu_9.i_gyro[2]);
-//    usb_printf("acc_x=%d , acc_y=%d,acc_z=%d\r\n",imu_9.i_acc[0],imu_9.i_acc[1],imu_9.i_acc[2]);
-//    usb_printf("mag_x=%d , mag_y=%d,mag_z=%d\r\n",imu_9.i_mag[0],imu_9.i_mag[1],imu_9.i_mag[2]);
-//	usb_printf("\r\n");
+	// usb_printf("gyro_x=%d , gyro_y=%d,gyro_z=%d\r\n", imu_9.i_gyro[0], imu_9.i_gyro[1], imu_9.i_gyro[2]);
+	// usb_printf("acc_x=%d , acc_y=%d,acc_z=%d\r\n", imu_9.i_acc[0], imu_9.i_acc[1], imu_9.i_acc[2]);
+	// usb_printf("mag_x=%d , mag_y=%d,mag_z=%d\r\n", imu_9.i_mag[0], imu_9.i_mag[1], imu_9.i_mag[2]);
+	// usb_printf("\r\n");
 }
 
 //将九轴数据转换为实际物理数据

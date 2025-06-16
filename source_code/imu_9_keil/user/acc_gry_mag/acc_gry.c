@@ -48,7 +48,7 @@ uint8_t acc_gyro_init(void)
 /**
  * @brief  6轴采样
  * @author
- * @param  gyro-脱落仪数据 acc-加速度数据
+ * @param  gyro-陀螺仪数据 acc-加速度数据
  * @return void
  */
 void acc_gyro_sample_data(int16_t *gyro,int16_t *acc )
