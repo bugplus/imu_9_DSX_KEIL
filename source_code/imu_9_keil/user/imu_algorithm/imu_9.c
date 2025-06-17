@@ -12,7 +12,7 @@
 #include "attitude_algorithm.h"
 #include "in_flash.h"
 #include "attitude.h"
-// #include "math.h"
+#include "math.h"
 
 
 extern TIM_HandleTypeDef htim2;
