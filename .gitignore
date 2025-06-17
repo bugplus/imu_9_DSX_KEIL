@@ -57,7 +57,7 @@ MDK-ARM/**
 MDK-ARM/output/
 MDK-ARM/RTE/
 MDK-ARM/list/
-MDK-ARM/IMU_9_DSX/
+MDK-ARM/IMU_9_DSX/**
 
 # 但不忽略 .uvprojx 文件
 !MDK-ARM/*.uvprojx
