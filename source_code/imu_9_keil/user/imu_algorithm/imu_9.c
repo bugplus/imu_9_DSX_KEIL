@@ -134,7 +134,7 @@ void imu_init(void)
     read_flash_information();
 
     init_attitude(&attitude);
-    imu_9.output_freq = 1000;
+    imu_9.output_freq = 1;
     HAL_Delay(100);
 
     HAL_TIM_Base_Start_IT(&htim2);

@@ -105,9 +105,9 @@ void calculate_attitude(ATT_Module *attitude, float cycle)
 	attitude->interface.data.g_y = imu_9.f_gyro[1];
 	attitude->interface.data.g_z = imu_9.f_gyro[2];
 	// todo 磁力计坐标系转换；
-	attitude->interface.data.m_x = -imu_9.f_mag[0];
-	attitude->interface.data.m_y = -imu_9.f_mag[1];
-	attitude->interface.data.m_z = imu_9.f_mag[2];
+	attitude->interface.data.m_x = imu_9.f_mag[0];
+	attitude->interface.data.m_y = imu_9.f_mag[1];
+	attitude->interface.data.m_z = -imu_9.f_mag[2];
 
 	
 	// 调试输出

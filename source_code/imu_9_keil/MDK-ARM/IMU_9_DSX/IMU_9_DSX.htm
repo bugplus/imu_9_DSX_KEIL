@@ -3,7 +3,7 @@
 <title>Static Call Graph - [IMU_9_DSX\IMU_9_DSX.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image IMU_9_DSX\IMU_9_DSX.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Mon Jun 23 14:58:39 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Mon Jun 23 20:50:32 2025
 <BR><P>
 <H3>Maximum Stack Usage =       2232 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -2855,7 +2855,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PeriodElapsedCallback
 </UL>
 
-<P><STRONG><a name="[1cb]"></a>imu_init</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, imu_9.o(i.imu_init))
+<P><STRONG><a name="[1cb]"></a>imu_init</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, imu_9.o(i.imu_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 208<LI>Call Chain = imu_init &rArr; mag_init &rArr; BSP_I2C1_WriteReg &rArr; HAL_I2C_Mem_Write &rArr; I2C_RequestMemoryWrite &rArr; I2C_WaitOnFlagUntilTimeout &rArr; I2C_IsErrorOccurred
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
