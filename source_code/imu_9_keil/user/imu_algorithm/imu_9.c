@@ -40,49 +40,51 @@ void read_flash_information(void)
 	float Xsf_temp = 1.0f;
 	float Ysf_temp = 1.0f;
 
-	STMFLASH_Read(ACC_ZERO_ADDR,(uint8_t*)&imu_9.acc_zero,6); //读取加速度零点
-	STMFLASH_Read(GYRO_ZERO_ADDR,(uint8_t*)&imu_9.gyro_zero,6); //读取陀螺仪零点
-	STMFLASH_Read(MAG_ZERO_ADDR,(uint8_t*)&imu_9.mag_zero,6);  //读取磁力计零点
-	STMFLASH_Read(MAG_OFFSET_XSF_ADDR,(uint8_t*)&xsf_read_buf,2);  //
-	STMFLASH_Read(MAG_OFFSET_YSF_ADDR,(uint8_t*)&ysf_read_buf,2);  //
+	// STMFLASH_Read(ACC_ZERO_ADDR,(uint8_t*)&imu_9.acc_zero,6); //读取加速度零点
+	// STMFLASH_Read(GYRO_ZERO_ADDR,(uint8_t*)&imu_9.gyro_zero,6); //读取陀螺仪零点
+	// STMFLASH_Read(MAG_ZERO_ADDR,(uint8_t*)&imu_9.mag_zero,6);  //读取磁力计零点
+	// STMFLASH_Read(MAG_OFFSET_XSF_ADDR,(uint8_t*)&xsf_read_buf,2);  //
+	// STMFLASH_Read(MAG_OFFSET_YSF_ADDR,(uint8_t*)&ysf_read_buf,2);  //
 
-	usb_printf("xsf_read_buf=%d , ysf_read_buf=%d \r\n", xsf_read_buf, ysf_read_buf);
+
+	// usb_printf("xsf_read_buf=%d , ysf_read_buf=%d \r\n", xsf_read_buf, ysf_read_buf);
+
 	// todo flash数据为空，赋默认值，代码需要继续简化；
-    if(imu_9.acc_zero[0]==-1) //默认0点是0
+    // if(imu_9.acc_zero[0]==-1) //默认0点是0
     {
     	imu_9.acc_zero[0] = 0;
     }
-    if(imu_9.acc_zero[1]==-1)
+    // if(imu_9.acc_zero[1]==-1)
     {
     	imu_9.acc_zero[1] = 0;
     }
-    if(imu_9.acc_zero[2]==-1)
+    // if(imu_9.acc_zero[2]==-1)
     {
     	imu_9.acc_zero[2] = 0;
     }
 
-    if(imu_9.gyro_zero[0]==-1)
+    // if(imu_9.gyro_zero[0]==-1)
     {
     	imu_9.gyro_zero[0] = 0;
     }
-    if(imu_9.gyro_zero[1]==-1)
+    // if(imu_9.gyro_zero[1]==-1)
     {
     	imu_9.gyro_zero[1] = 0;
     }
-    if(imu_9.gyro_zero[2]==-1)
+    // if(imu_9.gyro_zero[2]==-1)
     {
     	imu_9.acc_zero[2] = 0;
     }
 
-    if(imu_9.mag_zero[0]==-1)
+    // if(imu_9.mag_zero[0]==-1)
     {
     	imu_9.mag_zero[0] = 0;
     }
-    if(imu_9.mag_zero[1]==-1)
+    // if(imu_9.mag_zero[1]==-1)
     {
     	imu_9.mag_zero[1] = 0;
     }
-    if(imu_9.mag_zero[2]==-1)
+    // if(imu_9.mag_zero[2]==-1)
     {
     	imu_9.mag_zero[2] = 0;
     }
@@ -90,11 +92,11 @@ void read_flash_information(void)
     Xsf_temp = xsf_read_buf;
     Ysf_temp = ysf_read_buf;
 
-    if(xsf_read_buf==-1)
+    // if(xsf_read_buf==-1)
     {
     	Xsf_temp = 1000.0f;
     }
-    if(ysf_read_buf==-1)
+    // if(ysf_read_buf==-1)
     {
     	Ysf_temp = 1000.0f;
     }
@@ -104,12 +106,12 @@ void read_flash_information(void)
     imu_9.mag_xsf = Xsf_temp/1000.0f; //读取磁力计校准系数
    	imu_9.mag_ysf = Ysf_temp/1000.0f;
 
-    STMFLASH_Read(OUTPUT_ADDR,(uint8_t*)&imu_9.output_mode,1); //读取数据输出模式
+    // STMFLASH_Read(OUTPUT_ADDR,(uint8_t*)&imu_9.output_mode,1); //读取数据输出模式
     if(imu_9.output_mode==0xFF)
     {
     	imu_9.output_mode = 0; //默认欧拉角输出
     }
-
+	imu_9.output_mode = 0; //默认欧拉角输出
 }
 
 
@@ -120,11 +122,21 @@ void imu_init(void)
 
 	test_id_ag = acc_gyro_init();
     test_id_mag = mag_init();
+	#if 0
+	while (1)
+	{
+		/* code */
+	read_flash_information();
+	HAL_Delay(1000);
+	}
+	#endif
 
     read_flash_information();
+
     init_attitude(&attitude);
-    imu_9.output_freq = 1;
+    imu_9.output_freq = 1000;
     HAL_Delay(100);
+
     HAL_TIM_Base_Start_IT(&htim2);
 }
 
@@ -156,7 +168,7 @@ void imu_data_transition(int16_t ax,int16_t ay,int16_t az,int16_t gx,int16_t gy,
 	imu_9.f_mag[1] = (float)(imu_9.mag_ysf*my+imu_9.mag_zero[1]) * 1.5f;
 	imu_9.f_mag[2] = (float)(mz+imu_9.mag_zero[2]) * 1.5f;
 
-
+    // usb_printf("mag_x=%f , mag_y=%f,mag_z=%f\r\n", imu_9.f_mag[0], imu_9.f_mag[1], imu_9.f_mag[2]);
 
 }
 
@@ -179,6 +191,7 @@ void imu_final_data_get(void)
 	  filter_mx = window_filter(imu_9.i_mag[0],window_mx,WIN_NUM);
 	  filter_my = window_filter(imu_9.i_mag[1],window_my,WIN_NUM);
 	  filter_mz = window_filter(imu_9.i_mag[2],window_mz,WIN_NUM);
+	//   usb_printf("filter_mx=%d , filter_my=%d,filter_mz=%d\r\n", filter_mx, filter_my, filter_mz);
 	  //转换成实际物理量
 	  imu_data_transition(filter_ax,filter_ay,filter_az,filter_gx,filter_gy,filter_gz,filter_mx,filter_my,filter_mz);
 
@@ -219,6 +232,7 @@ void data_output_mode(uint8_t mode)  //数据输出模式,vofa+查看曲线图�
 	{
 	case 0:  //欧拉角输出
 		vofa_FireWater_USB_output(attitude.data.rol, attitude.data.pitch, attitude.data.yaw,imu_9.mag_yaw_test);
+		// vofa_FireWater_USB_output(attitude.data.rol, attitude.data.pitch, attitude.data.yaw,imu_9.yaw);
 		break;
 	case 1: //四元数输出
 		vofa_FireWater_USB_output(attitude.process.quaternion[0],attitude.process.quaternion[1],attitude.process.quaternion[2],attitude.process.quaternion[3]);

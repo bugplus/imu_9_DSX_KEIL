@@ -3,7 +3,7 @@
 <title>Static Call Graph - [IMU_9_DSX\IMU_9_DSX.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image IMU_9_DSX\IMU_9_DSX.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Tue Jun 17 10:20:37 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Mon Jun 23 14:58:39 2025
 <BR><P>
 <H3>Maximum Stack Usage =       2232 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1795,8 +1795,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[145]"></a>HAL_TIM_IRQHandler</STRONG> (Thumb, 418 bytes, Stack size 24 bytes, stm32g4xx_hal_tim.o(i.HAL_TIM_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1360 + Unknown Stack Size
-<LI>Call Chain = HAL_TIM_IRQHandler &rArr; HAL_TIM_PeriodElapsedCallback &rArr; data_output_mode &rArr; usb_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 1432 + Unknown Stack Size
+<LI>Call Chain = HAL_TIM_IRQHandler &rArr; HAL_TIM_PeriodElapsedCallback &rArr; data_output_mode &rArr; vofa_FireWater_USB_output &rArr; usb_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_TriggerCallback
 <LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_PulseFinishedCallback
@@ -1823,8 +1823,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[149]"></a>HAL_TIM_PeriodElapsedCallback</STRONG> (Thumb, 142 bytes, Stack size 24 bytes, imu_9.o(i.HAL_TIM_PeriodElapsedCallback))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1336 + Unknown Stack Size
-<LI>Call Chain = HAL_TIM_PeriodElapsedCallback &rArr; data_output_mode &rArr; usb_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 1408 + Unknown Stack Size
+<LI>Call Chain = HAL_TIM_PeriodElapsedCallback &rArr; data_output_mode &rArr; vofa_FireWater_USB_output &rArr; usb_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_TogglePin
 <LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2
@@ -2022,7 +2022,6 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = STMFLASH_Read
 </UL>
 <BR>[Called By]<UL><LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;STMFLASH_Write
-<LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_flash_information
 </UL>
 
 <P><STRONG><a name="[17d]"></a>STMFLASH_Write</STRONG> (Thumb, 110 bytes, Stack size 2072 bytes, in_flash.o(i.STMFLASH_Write))
@@ -2072,8 +2071,8 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g431xx.o(.text)
 </UL>
 <P><STRONG><a name="[4a]"></a>TIM2_IRQHandler</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32g4xx_it.o(i.TIM2_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1360 + Unknown Stack Size
-<LI>Call Chain = TIM2_IRQHandler &rArr; HAL_TIM_IRQHandler &rArr; HAL_TIM_PeriodElapsedCallback &rArr; data_output_mode &rArr; usb_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 1432 + Unknown Stack Size
+<LI>Call Chain = TIM2_IRQHandler &rArr; HAL_TIM_IRQHandler &rArr; HAL_TIM_PeriodElapsedCallback &rArr; data_output_mode &rArr; vofa_FireWater_USB_output &rArr; usb_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_IRQHandler
 </UL>
@@ -2807,8 +2806,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[159]"></a>data_output_mode</STRONG> (Thumb, 344 bytes, Stack size 136 bytes, imu_9.o(i.data_output_mode))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1312 + Unknown Stack Size
-<LI>Call Chain = data_output_mode &rArr; usb_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 1384 + Unknown Stack Size
+<LI>Call Chain = data_output_mode &rArr; vofa_FireWater_USB_output &rArr; usb_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[1c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vofa_FireWater_USB_output
@@ -2856,9 +2855,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PeriodElapsedCallback
 </UL>
 
-<P><STRONG><a name="[1cb]"></a>imu_init</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, imu_9.o(i.imu_init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1208 + Unknown Stack Size
-<LI>Call Chain = imu_init &rArr; read_flash_information &rArr; usb_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
+<P><STRONG><a name="[1cb]"></a>imu_init</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, imu_9.o(i.imu_init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 208<LI>Call Chain = imu_init &rArr; mag_init &rArr; BSP_I2C1_WriteReg &rArr; HAL_I2C_Mem_Write &rArr; I2C_RequestMemoryWrite &rArr; I2C_WaitOnFlagUntilTimeout &rArr; I2C_IsErrorOccurred
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[1cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Start_IT
@@ -2947,14 +2945,8 @@ Global Symbols
 <LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculate_attitude
 </UL>
 
-<P><STRONG><a name="[1cd]"></a>read_flash_information</STRONG> (Thumb, 280 bytes, Stack size 24 bytes, imu_9.o(i.read_flash_information))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1200 + Unknown Stack Size
-<LI>Call Chain = read_flash_information &rArr; usb_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
-</UL>
-<BR>[Calls]<UL><LI><a href="#[1c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usb_printf
-<LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;STMFLASH_Read
-</UL>
-<BR>[Called By]<UL><LI><a href="#[1cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_init
+<P><STRONG><a name="[1cd]"></a>read_flash_information</STRONG> (Thumb, 66 bytes, Stack size 0 bytes, imu_9.o(i.read_flash_information))
+<BR><BR>[Called By]<UL><LI><a href="#[1cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_init
 </UL>
 
 <P><STRONG><a name="[1c6]"></a>set_acc_gyro_offset</STRONG> (Thumb, 154 bytes, Stack size 48 bytes, acc_gry.o(i.set_acc_gyro_offset))
@@ -2995,7 +2987,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDC_Transmit_FS
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vsnprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_flash_information
+<BR>[Called By]<UL><LI><a href="#[1c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vofa_FireWater_USB_output
 <LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_output_mode
 <LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cmd_output
 <LI><a href="#[20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cmd_cali
@@ -3023,8 +3015,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDC_Receive_FS
 </UL>
 
-<P><STRONG><a name="[1c4]"></a>vofa_FireWater_USB_output</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, debug.o(i.vofa_FireWater_USB_output))
-<BR><BR>[Called By]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_output_mode
+<P><STRONG><a name="[1c4]"></a>vofa_FireWater_USB_output</STRONG> (Thumb, 94 bytes, Stack size 72 bytes, debug.o(i.vofa_FireWater_USB_output))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1248 + Unknown Stack Size
+<LI>Call Chain = vofa_FireWater_USB_output &rArr; usb_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
+</UL>
+<BR>[Calls]<UL><LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[1c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usb_printf
+</UL>
+<BR>[Called By]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_output_mode
 </UL>
 
 <P><STRONG><a name="[1c9]"></a>window_filter</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, data_filter.o(i.window_filter))
@@ -3159,7 +3157,8 @@ Global Symbols
 <P><STRONG><a name="[155]"></a>__aeabi_f2d</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_f2d
 </UL>
-<BR>[Called By]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_output_mode
+<BR>[Called By]<UL><LI><a href="#[1c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vofa_FireWater_USB_output
+<LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_output_mode
 <LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PeriodElapsedCallback
 </UL>
 

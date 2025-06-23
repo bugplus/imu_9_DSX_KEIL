@@ -1,7 +1,9 @@
 #include "attitude.h"
 #include "my_math.h"
 #include "imu_9.h"
-
+//  测试print
+#include "stdio.h"
+#include "string.h"
 ATT_Module attitude;
 
 void init_attitude(ATT_Module *attitude)
@@ -103,12 +105,19 @@ void calculate_attitude(ATT_Module *attitude, float cycle)
 	attitude->interface.data.g_y = imu_9.f_gyro[1];
 	attitude->interface.data.g_z = imu_9.f_gyro[2];
 	// todo 磁力计坐标系转换；
-	attitude->interface.data.m_x = imu_9.f_mag[1];
-	attitude->interface.data.m_y = imu_9.f_mag[0];
-	attitude->interface.data.m_z = -imu_9.f_mag[2];
-
+	attitude->interface.data.m_x = -imu_9.f_mag[0];
+	attitude->interface.data.m_y = -imu_9.f_mag[1];
+	attitude->interface.data.m_z = imu_9.f_mag[2];
 
 	
+	// 调试输出
+    // printf("Raw Mag Data: X=%f, Y=%f, Z=%f\n", imu_9.f_mag[0], imu_9.f_mag[1], imu_9.f_mag[2]);
+	// usb_printf("mag_x=%d , mag_y=%d,mag_z=%d\r\n", imu_9.f_mag[0], imu_9.f_mag[1], imu_9.f_mag[2]);
+    // printf("Converted Mag Data: X=%f, Y=%f, Z=%f\n", 
+    //        attitude->interface.data.m_x, 
+    //        attitude->interface.data.m_y, 
+    //        attitude->interface.data.m_z);
+
 	if (attitude->flag.run == 0)
 		return;
 	
