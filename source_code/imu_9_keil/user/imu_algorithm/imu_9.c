@@ -134,8 +134,8 @@ void imu_init(void)
     read_flash_information();
 
     init_attitude(&attitude);
-    imu_9.output_freq = 1;
-    HAL_Delay(100);
+    imu_9.output_freq = 10;
+    HAL_Delay(1);
 
     HAL_TIM_Base_Start_IT(&htim2);
 }
@@ -276,7 +276,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 			{
 				HAL_GPIO_TogglePin(TEST_GPIO_Port, TEST_Pin); //测试引脚PA7，可使用示波器测量，确定采样时间是否准确
 				imu_final_data_get(); //原始数据采样
-				calculate_attitude(&attitude, 0.001) ; //姿态解算
+				calculate_attitude(&attitude, 0.01) ; //姿态解算
 				imu_9.mag_yaw_test = atan2(imu_9.f_mag[1],imu_9.f_mag[0])*57.2957795131f;
 				imu_9.time_tick++;
 				data_output_mode(imu_9.output_mode);  //数据输出,vofa+查看曲线图形
